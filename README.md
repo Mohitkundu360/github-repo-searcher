@@ -31,63 +31,41 @@ src
            └── application.properties
 
 1. Clone the Repository
-bash
-Copy
-Edit
 git clone https://github.com/MohitKundu360/github-repo-searcher.git
 cd github-repo-searcher
 2. Configure PostgreSQL Database
 Make sure PostgreSQL is running and create a database named:
 
 sql
-Copy
-Edit
 CREATE DATABASE github_db;
 Update your application.properties:
 
 properties
-Copy
-Edit
 spring.datasource.url=jdbc:postgresql://localhost:5432/github_db
 spring.datasource.username=postgres
 spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
 3. Run the Application
-bash
-Copy
-Edit
 mvn spring-boot:run
 The server will start on:
 http://localhost:8080
 
 📮 API Endpoints
 1. Search GitHub Repositories (Save to DB)
-http
-Copy
-Edit
-POST /api/github/search
+http POST /api/github/search
 Request Body:
 
-json
-Copy
-Edit
-{
+json {
   "query": "spring boot"
 }
 Response: List of repositories.
 
 2. Get All Saved Repositories
-http
-Copy
-Edit
-GET /api/github/repositories
+http GET /api/github/repositories
 Response: All repositories from the database.
 
 3. Filter & Sort Repositories
-http
-Copy
-Edit
-GET /api/github/repositories?nameFilter=spring&sortBy=name
+http GET /api/github/repositories?nameFilter=spring&sortBy=name
 nameFilter → Optional search keyword.
 
 sortBy → Optional field to sort by (name).
@@ -103,14 +81,3 @@ GitHub REST API
 
 Spring Boot Documentation
 
-yaml
-Copy
-Edit
-
----
-
-### ✅ Would you like me to:
-- Prepare this file and push it directly to your GitHub repository?
-- Generate a **.gitignore** file for your project?
-
-Let me know how you’d like to proceed! 😊
